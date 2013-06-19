@@ -29,7 +29,6 @@ namespace Assets.Scripts.tdp.entity.factory {
                 Quaternion.identity);
 
             Tower tower = towerGameObject.GetComponent<Tower>();
-            tower.towerSlot = towerSlot;
             tower.lineId = towerSlot.lineId;
 
             tower.attackRange = Configuration.TowerAttackRange[towerType] * Configuration.CellWidth;

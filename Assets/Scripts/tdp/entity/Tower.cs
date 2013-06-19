@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace Assets.Scripts.tdp {
     public class Tower : BasicGameEntity {
-        public TowerSlot towerSlot;
         public float attackRange;
         public float shootsPerSecond;
         public int damage;
