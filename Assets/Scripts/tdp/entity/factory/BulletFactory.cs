@@ -5,17 +5,15 @@ using Assets.Scripts.tdp.entity.behaviour.bullet;
 using UnityEngine;
 
 namespace Assets.Scripts.tdp.entity.factory {
-    public class BulletFactory {
-        private readonly GameObject bulletPrefab;
-        private readonly IBulletBehaviourInCollisionStrategy bulletBehaviourInCollision;
-        private readonly IBulletDestroyStrategy destroyStrategy;
-        private readonly IBulletMovementStrategy movementStrategy;
-        private readonly SpriteManager spriteManager;
+    public class BulletFactory : MonoBehaviour {
+        public GameObject bulletPrefab;
+        public SpriteManager spriteManager;
 
-        public BulletFactory() {
-            bulletPrefab = (GameObject) Resources.Load("Prefabs/BulletPrefab");
-            spriteManager = (SpriteManager)Object.FindObjectOfType(typeof(SpriteManager));
-
+        private IBulletBehaviourInCollisionStrategy bulletBehaviourInCollision;
+        private IBulletDestroyStrategy destroyStrategy;
+        private IBulletMovementStrategy movementStrategy;
+        
+        public void Start() {
             bulletBehaviourInCollision = new CollideAndDamageEnemyThenDie();
             destroyStrategy = new DestroyBullet();
             movementStrategy = new MoveToRight();

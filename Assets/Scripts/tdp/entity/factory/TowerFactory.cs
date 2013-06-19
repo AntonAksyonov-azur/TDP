@@ -7,17 +7,14 @@ using UnityEngine;
 
 namespace Assets.Scripts.tdp.entity.factory {
     public class TowerFactory : MonoBehaviour {
-        public SpriteManager spriteManager;
         public GameObject towerPrefab;
-
-        private BulletFactory bulletFactory;
+        public SpriteManager spriteManager;
+        public BulletFactory bulletFactory;
 
         private IFindTargetStrategy targetingStrategy;
         private IShootStrategy shootingStrategy;
 
         public void Start() {
-            bulletFactory = new BulletFactory();
-
             targetingStrategy = new FindEnemy();
             shootingStrategy = new CreateBullet(bulletFactory);
         }

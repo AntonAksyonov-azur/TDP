@@ -11,6 +11,7 @@ namespace Assets.Scripts.tdp {
     public class Gameplay : MonoBehaviour, INotifyEnemyPassed {
         public EnemyFactory enemyFactory;
         public TowerFactory towerFactory;
+        public BulletFactory bulletFactory;
         
         public GameObject linePrefab;
         public GameObject towerSlotPrefab;
