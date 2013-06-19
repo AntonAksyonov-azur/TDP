@@ -8,6 +8,7 @@ using Assets.Scripts.tdp.constants;
 using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.enemy;
 using Assets.Scripts.tdp.entity.factory;
+using Assets.Test.utility;
 using NUnit.Framework;
 using UnityEngine;
 using Object = UnityEngine.Object;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Assets.Test {
+namespace Assets.Test.utility {
     public static class ScriptInstantiator {
 
         private static List<GameObject> gameObjects = new List<GameObject>();

@@ -6,6 +6,7 @@ using Assets.Scripts.tdp.constants;
 using Assets.Scripts.tdp.entity.behaviour.tower;
 using Assets.Scripts.tdp.entity.factory;
 using Assets.Scripts.tdp.gui;
+using Assets.Test.utility;
 using NUnit.Framework;
 using UnityEngine;
 using Object = UnityEngine.Object;

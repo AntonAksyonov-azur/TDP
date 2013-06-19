@@ -7,6 +7,7 @@ using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.enemy;
 using Assets.Scripts.tdp.entity.behaviour.tower;
+using Assets.Test.utility;
 using NUnit.Framework;
 using UnityEngine;
 using Object = UnityEngine.Object;
