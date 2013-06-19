@@ -6,7 +6,7 @@ namespace Assets.Scripts.tdp.entity {
         public float speed; // Число клеток в секунду
         public int damage;
 
-        public IBulletBehaviourInCollisionStrategy BulletBehaviourInBehaviourInCollision;
+        public IBulletBehaviourInCollisionStrategy bulletBehaviourInCollision;
         public IBulletDestroyStrategy destroyStrategy;
         public IBulletMovementStrategy movementStrategy;
 
@@ -17,7 +17,7 @@ namespace Assets.Scripts.tdp.entity {
         public void OnTriggerEnter(Collider colliderObject) {
             //Debug.Log(string.Format("Bullet hits something ({0})", colliderObject.tag));
 
-            BulletBehaviourInBehaviourInCollision.OnCollision(this, colliderObject);
+            bulletBehaviourInCollision.OnCollision(this, colliderObject);
         }
     }
 }

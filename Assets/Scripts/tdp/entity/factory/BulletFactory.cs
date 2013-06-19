@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Assets.Scripts.tdp.entity.factory {
     public class BulletFactory {
         private readonly GameObject bulletPrefab;
-        private readonly IBulletBehaviourInCollisionStrategy BulletBehaviourInBehaviourInCollision;
+        private readonly IBulletBehaviourInCollisionStrategy bulletBehaviourInCollision;
         private readonly IBulletDestroyStrategy destroyStrategy;
         private readonly IBulletMovementStrategy movementStrategy;
         private readonly SpriteManager spriteManager;
@@ -16,7 +16,7 @@ namespace Assets.Scripts.tdp.entity.factory {
             bulletPrefab = (GameObject) Resources.Load("Prefabs/BulletPrefab");
             spriteManager = (SpriteManager)Object.FindObjectOfType(typeof(SpriteManager));
 
-            BulletBehaviourInBehaviourInCollision = new CollideAndDamageEnemyThenDie();
+            bulletBehaviourInCollision = new CollideAndDamageEnemyThenDie();
             destroyStrategy = new DestroyBullet();
             movementStrategy = new MoveToRight();
         }
@@ -30,7 +30,7 @@ namespace Assets.Scripts.tdp.entity.factory {
             bullet.damage = damage;
 
             bullet.movementStrategy = movementStrategy;
-            bullet.BulletBehaviourInBehaviourInCollision = BulletBehaviourInBehaviourInCollision;
+            bullet.bulletBehaviourInCollision = bulletBehaviourInCollision;
             bullet.destroyStrategy = destroyStrategy;
 
             bulletGameObject.GetComponent<BoxCollider>().size = Configuration.BulletSize;

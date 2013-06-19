@@ -16,7 +16,7 @@ namespace Assets.Test.tdp.entity.behaviour.bullet {
             testBullet =
                 ScriptInstantiator.InstantiateScript<Bullet>((GameObject) Resources.Load("Prefabs/BulletPrefab"));
             testBullet.damage = Configuration.TowerDamage[0];
-            testBullet.BulletBehaviourInBehaviourInCollision = new CollideAndDamageEnemyThenDie();
+            testBullet.bulletBehaviourInCollision = new CollideAndDamageEnemyThenDie();
             testBullet.destroyStrategy = new DestroyBullet();
 
             testEnemy =
@@ -27,7 +27,7 @@ namespace Assets.Test.tdp.entity.behaviour.bullet {
 
         [Test]
         public void OnCollisionTest() {
-            testBullet.BulletBehaviourInBehaviourInCollision.OnCollision(testBullet, testEnemy.collider);
+            testBullet.bulletBehaviourInCollision.OnCollision(testBullet, testEnemy.collider);
             Assert.That(testEnemy.currentHealth, Is.EqualTo(testEnemy.maxHealth - testBullet.damage));
         }
 

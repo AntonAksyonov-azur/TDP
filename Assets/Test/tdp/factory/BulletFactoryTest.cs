@@ -38,7 +38,7 @@ namespace Assets.Test.tdp.factory {
 
             Assert.That(bulletInstance.movementStrategy, Is.InstanceOf(typeof(MoveToRight)), "Movement strategy is wrong");
             Assert.That(bulletInstance.destroyStrategy, Is.InstanceOf(typeof(DestroyBullet)), "Destroy strategy is wrong");
-            Assert.That(bulletInstance.BulletBehaviourInBehaviourInCollision, 
+            Assert.That(bulletInstance.bulletBehaviourInCollision, 
                 Is.InstanceOf(typeof(CollideAndDamageEnemyThenDie)), "Collide beheviour strategy is wrong");
 
             Assert.NotNull(testBullet.GetComponent<Bullet>().sprite, "Sprite wasn't created");
