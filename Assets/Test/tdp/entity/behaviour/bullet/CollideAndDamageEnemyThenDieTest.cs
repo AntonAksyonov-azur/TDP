@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.tdp.configuration;
+using Assets.Scripts.tdp.constants;
 using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.bullet;
 using Assets.Test.utility;
@@ -15,14 +16,14 @@ namespace Assets.Test.tdp.entity.behaviour.bullet {
         public void SetUp() {
             testBullet =
                 ScriptInstantiator.InstantiateScript<Bullet>((GameObject) Resources.Load("Prefabs/BulletPrefab"));
-            testBullet.damage = Configuration.TowerDamage[0];
+            testBullet.damage = Configuration.Towers[TowerType.Type1].Damage;
             testBullet.bulletBehaviourInCollision = new CollideAndDamageEnemyThenDie();
             testBullet.destroyStrategy = new DestroyBullet();
 
             testEnemy =
                 ScriptInstantiator.InstantiateScript<Enemy>((GameObject) Resources.Load("Prefabs/EnemyPrefab"));
-            testEnemy.maxHealth = Configuration.EnemyMaxHealth[0];
-            testEnemy.currentHealth = Configuration.EnemyMaxHealth[0];
+            testEnemy.maxHealth = Configuration.Enemies[EnemyType.Type1].MaxHealth;
+            testEnemy.currentHealth = Configuration.Enemies[EnemyType.Type1].MaxHealth;
         }
 
         [Test]

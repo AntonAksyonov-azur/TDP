@@ -45,7 +45,7 @@ namespace Assets.Test.tdp.factory
                 Assert.That(enemyInstance.lineId, Is.EqualTo(lineId),
                             String.Format("Line id is wrong, was type {0}", enemyType));
                 Assert.That(enemyInstance.maxHealth,
-                            Is.EqualTo(Configuration.EnemyMaxHealth[enemyType]),
+                            Is.EqualTo(Configuration.Enemies[enemyType].MaxHealth),
                             String.Format("Line id is wrong, was type {0}", enemyType));
                 Assert.That(enemyInstance.currentHealth, Is.EqualTo(enemyInstance.maxHealth),
                             String.Format(
@@ -54,7 +54,7 @@ namespace Assets.Test.tdp.factory
                 Assert.That(enemyInstance.transform.position, Is.EqualTo(position),
                             String.Format("Position is wrong, was type {0}", enemyType));
                 Assert.That(enemyInstance.speed,
-                            Is.EqualTo(Configuration.EnemySpeed[enemyType] * Configuration.CellWidth),
+                            Is.EqualTo(Configuration.Enemies[enemyType].Speed * Configuration.CellWidth),
                             String.Format("Speed is not as in configuration, was type {0}", enemyType));
 
                 Assert.That(enemyInstance.movementStrategy, Is.InstanceOf(typeof (MoveToLeft)),

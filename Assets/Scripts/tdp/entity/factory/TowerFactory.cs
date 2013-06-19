@@ -28,9 +28,9 @@ namespace Assets.Scripts.tdp.entity.factory {
             Tower tower = towerGameObject.GetComponent<Tower>();
             tower.lineId = towerSlot.lineId;
 
-            tower.attackRange = Configuration.TowerAttackRange[towerType] * Configuration.CellWidth;
-            tower.damage = Configuration.TowerDamage[towerType];
-            tower.shootsPerSecond = Configuration.TowerShootsPerSecond[towerType];
+            tower.attackRange = Configuration.Towers[towerType].AttackRange * Configuration.CellWidth;
+            tower.damage = Configuration.Towers[towerType].Damage;
+            tower.shootsPerSecond = Configuration.Towers[towerType].ShootsPerSecond;
 
             tower.shootingStrategy = shootingStrategy;
             tower.targetingStrategy = targetingStrategy;
@@ -40,7 +40,7 @@ namespace Assets.Scripts.tdp.entity.factory {
             // Объект уже в мире из-за вызова Instantiate
 
             // Добавляем спрайт
-            Rect towerFrame = Configuration.TowerFrames[towerType];
+            Rect towerFrame = Configuration.Towers[towerType].SpriteFrame;
 
             tower.sprite = spriteManager.AddSprite(towerGameObject,
                                                    towerFrame.width,

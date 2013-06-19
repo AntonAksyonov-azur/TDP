@@ -4,6 +4,7 @@ using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.bullet;
 using Assets.Scripts.tdp.entity.behaviour.enemy;
 using Assets.Scripts.tdp.entity.factory;
+using Assets.Test.utility;
 using NUnit.Framework;
 using UnityEngine;
 
@@ -19,7 +20,11 @@ namespace Assets.Test.tdp.factory {
 
         [SetUp]
         public void SetUp() {
-            bulletFactory = new BulletFactory();
+            bulletFactory =
+                ScriptInstantiator.InstantiateScript<BulletFactory>(
+                (GameObject)Resources.Load("Prefabs/Factories/BulletFactoryPrefab"));
+            bulletFactory.spriteManager = (SpriteManager)Object.FindObjectOfType(typeof(SpriteManager));
+            bulletFactory.Start();
         }
 
         [Test]
@@ -51,6 +56,8 @@ namespace Assets.Test.tdp.factory {
             testBullet.GetComponent<Bullet>().sprite = null;
 
             Object.DestroyImmediate(testBullet);
+
+            Object.Destroy(bulletFactory.gameObject);
         }
     }
 }

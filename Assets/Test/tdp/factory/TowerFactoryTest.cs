@@ -50,13 +50,13 @@ namespace Assets.Test.tdp.factory {
                                String.Format("Tower script instance wasn't created, was type {0}", towerType));
                 Assert.That(towerInstance.lineId, Is.EqualTo(lineId), "Line id is wrong, was type {0}", towerType);
                 Assert.That(towerInstance.attackRange,
-                            Is.EqualTo(Configuration.TowerAttackRange[towerType] * Configuration.CellWidth),
+                            Is.EqualTo(Configuration.Towers[towerType].AttackRange * Configuration.CellWidth),
                             "Attack range is not as in configuration, was type {0}", towerType);
                 Assert.That(towerInstance.shootsPerSecond,
-                            Is.EqualTo(Configuration.TowerShootsPerSecond[towerType]),
+                            Is.EqualTo(Configuration.Towers[towerType].ShootsPerSecond),
                             "Shoots per second is not as in configuration, was type {0}", towerType);
                 Assert.That(towerInstance.damage,
-                            Is.EqualTo(Configuration.TowerDamage[towerType]),
+                            Is.EqualTo(Configuration.Towers[towerType].Damage),
                             "Damage is not as in configuration, was type {0}", towerType);
 
                 Assert.That(towerInstance.transform.position, Is.EqualTo(position), "Position is wrong, was type {0}",

@@ -34,41 +34,67 @@ namespace Assets.Scripts.tdp.configuration {
         public static int TowerTypesCount = 3;
         public static Vector3 TowerSize = new Vector3(64, 64);
 
-        public static Dictionary<TowerType, float> TowerShootsPerSecond = new Dictionary<TowerType, float> {
-            {TowerType.Type1, 1.0f},
-            {TowerType.Type2, 0.5f},
-            {TowerType.Type3, 0.25f},
-        };
-
-        public static Dictionary<TowerType, int> TowerDamage = new Dictionary<TowerType, int> {
-            {TowerType.Type1, 20},
-            {TowerType.Type2, 50},
-            {TowerType.Type3, 125},
-        };
-
-        public static Dictionary<TowerType, int> TowerAttackRange = new Dictionary<TowerType, int> {
-            {TowerType.Type1, 4},
-            {TowerType.Type2, 3},
-            {TowerType.Type3, 2},
-        };
+        public static Dictionary<TowerType, TowerConfiguration> Towers =
+            new Dictionary<TowerType, TowerConfiguration> {
+                {
+                    TowerType.Type1,
+                    new TowerConfiguration {
+                        ShootsPerSecond = 1.0f,
+                        Damage = 20,
+                        AttackRange = 4,
+                        SpriteFrame = new Rect(704, 134, 64, 64)
+                    }
+                },
+                {
+                    TowerType.Type2,
+                    new TowerConfiguration {
+                        ShootsPerSecond = 0.5f,
+                        Damage = 50,
+                        AttackRange = 3,
+                        SpriteFrame = new Rect(704, 68, 64, 64)
+                    }
+                },
+                {
+                    TowerType.Type3,
+                    new TowerConfiguration {
+                        ShootsPerSecond = 0.25f,
+                        Damage = 125,
+                        AttackRange = 2,
+                        SpriteFrame = new Rect(704, 2, 64, 64)
+                    }
+                }
+            };
 
         // Настройки типов врагов
         public static int EnemyTypesCount = 3;
         public static Vector3 EnemySize = new Vector3(64, 64);
         public static float EnemyAppearsInterval = 3.0f;
 
-        public static Dictionary<EnemyType, int> EnemyMaxHealth = new Dictionary<EnemyType, int> {
-            {EnemyType.Type1, 50},
-            {EnemyType.Type2, 100},
-            {EnemyType.Type3, 200},
-        };
-
-        public static Dictionary<EnemyType, float> EnemySpeed = new Dictionary<EnemyType, float> {
-            {EnemyType.Type1, 1.0f},
-            {EnemyType.Type2, 0.5f},
-            {EnemyType.Type3, 0.25f},
-        };
-
+        public static Dictionary<EnemyType, EnemyConfiguration> Enemies =
+            new Dictionary<EnemyType, EnemyConfiguration> {
+                {
+                    EnemyType.Type1,
+                    new EnemyConfiguration {
+                        MaxHealth = 50,
+                        Speed = 1.0f,
+                        SpriteFrame = new Rect(770, 134, 64, 64)
+                    }
+                }, {
+                    EnemyType.Type2,
+                    new EnemyConfiguration {
+                        MaxHealth = 100,
+                        Speed = 0.5f,
+                        SpriteFrame = new Rect(770, 68, 64, 64)
+                    }
+                }, {
+                    EnemyType.Type3,
+                    new EnemyConfiguration {
+                        MaxHealth = 200,
+                        Speed = 0.25f,
+                        SpriteFrame = new Rect(770, 2, 64, 64)
+                    }
+                },
+            };
 
         // Геймплей
         public static float SecondsToEndGame = 300.0f;
@@ -80,19 +106,6 @@ namespace Assets.Scripts.tdp.configuration {
 
         // Графика
         public static Rect LineFrame = new Rect(2, 2, 700, 200);
-
         public static Rect BulletFrame = new Rect(2, 204, 32, 32);
-
-        public static Dictionary<EnemyType, Rect> EnemyFrames = new Dictionary<EnemyType, Rect> {
-            {EnemyType.Type1, new Rect(770, 134, 64, 64)},
-            {EnemyType.Type2, new Rect(770, 68, 64, 64)},
-            {EnemyType.Type3, new Rect(770, 2, 64, 64)},
-        };
-
-        public static Dictionary<TowerType, Rect> TowerFrames = new Dictionary<TowerType, Rect> {
-            {TowerType.Type1, new Rect(704, 134, 64, 64)},
-            {TowerType.Type2, new Rect(704, 68, 64, 64)},
-            {TowerType.Type3, new Rect(704, 2, 64, 64)},
-        };
     }
 }

@@ -26,7 +26,7 @@ namespace Assets.Test.tdp.entity.behaviour.tower
             testTower.targetingStrategy = new FindEnemy();
             testTower.gameObject.GetComponent<BoxCollider>().size = Configuration.TowerSize;
             testTower.attackRange = 100.0f; // Устанавливаем хардкодом, чтобы тест на функциональность не зависил от изменения конфигурации
-            //Configuration.TowerAttackRange[0] * Configuration.CellWidth;
+            //Configuration.AttackRange[0] * Configuration.CellWidth;
             testTower.lineId = 0;
 
             testEnemy = ScriptInstantiator.InstantiateScript<Enemy>((GameObject)Resources.Load("Prefabs/EnemyPrefab"));

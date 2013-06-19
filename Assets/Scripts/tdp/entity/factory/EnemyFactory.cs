@@ -23,9 +23,9 @@ namespace Assets.Scripts.tdp.entity.factory {
 
             var enemy = enemyGameObject.GetComponent<Enemy>();
             enemy.lineId = lineId;
-            enemy.maxHealth = Configuration.EnemyMaxHealth[enemyType];
+            enemy.maxHealth = Configuration.Enemies[enemyType].MaxHealth;
             enemy.currentHealth = enemy.maxHealth;
-            enemy.speed = Configuration.EnemySpeed[enemyType] * Configuration.CellWidth;
+            enemy.speed = Configuration.Enemies[enemyType].Speed * Configuration.CellWidth;
 
             enemy.movementStrategy = movementStrategy;
             enemy.deathStrategy = deathStrategy;
@@ -35,7 +35,7 @@ namespace Assets.Scripts.tdp.entity.factory {
             // Объект уже в мире из-за вызова Instantiate
 
             // Добавляем спрайт
-            Rect enemyFrame = Configuration.EnemyFrames[enemyType];
+            Rect enemyFrame = Configuration.Enemies[enemyType].SpriteFrame;
 
             var sprite = spriteManager.AddSprite(enemyGameObject,
                                                    enemyFrame.width,
