@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts.sprite.manager;
+﻿using Assets.Scripts.sprite.manager;
 using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.constants;
 using Assets.Scripts.tdp.entity.factory;
 using Assets.Scripts.tdp.gui;
 using UnityEngine;
+using Assets.Scripts.net.extension;
 
 namespace Assets.Scripts.tdp {
     public class Gameplay : MonoBehaviour, INotifyEnemyPassed {
@@ -92,12 +91,11 @@ namespace Assets.Scripts.tdp {
 
         private void CreateRandomEnemy() {
             int targetLineId = Random.Range(0, Configuration.LinesCount);
-            var enemyType = (EnemyType)Random.Range(0, Configuration.EnemyTypesCount);
 
             enemyFactory.CreateEnemy(
                 new Vector2(Configuration.FirstEnemyPositionX,
                             Configuration.FirstEnemyPositionY - targetLineId * Configuration.LineHeight), targetLineId,
-                enemyType);
+                Configuration.Enemies.GetRandomKeyViaUnityRandom());
         }
 
         private void UpdateGameStatus() {

@@ -66,7 +66,6 @@ namespace Assets.Scripts.tdp.configuration {
             };
 
         // Настройки типов врагов
-        public static int EnemyTypesCount = 3;
         public static Vector3 EnemySize = new Vector3(64, 64);
         public static float EnemyAppearsInterval = 3.0f;
 
