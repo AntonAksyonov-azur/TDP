@@ -30,7 +30,6 @@ namespace Assets.Test.tdp.utility {
         private List<Vector2> screen;
         private int ScreenWidth;
         private int ScreenHeight;
-        private const float EPSILON = 0.0001f;
 
         [Test]
         public void RealCoordinatesToScreenTest() {

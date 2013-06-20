@@ -25,13 +25,10 @@ namespace Assets.Scripts.tdp.configuration {
         public static float CellWidth = 35;
         public static float LineHeight = 200;
 
-        public static int CellsCount = 20;
-
         public static int LeftGameFieldBorderX = -350;
         public static int RightGameFieldBorderX = 350;
 
         // Настройки типов башен
-        public static int TowerTypesCount = 3;
         public static Vector3 TowerSize = new Vector3(64, 64);
 
         public static Dictionary<TowerType, TowerConfiguration> Towers =
