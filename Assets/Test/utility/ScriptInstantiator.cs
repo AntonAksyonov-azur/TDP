@@ -6,16 +6,14 @@ using Object = UnityEngine.Object;
 namespace Assets.Test.utility {
     public static class ScriptInstantiator {
 
-        private static List<GameObject> gameObjects = new List<GameObject>();
+        private static readonly List<GameObject> gameObjects = new List<GameObject>();
 
         public static T InstantiateScript<T>(GameObject gameObjectPrefab) where T : MonoBehaviour {
-
-            GameObject gameObject;
             if (gameObjectPrefab == null) {
                 throw new Exception("Failed to create game object");
             }
             
-            gameObject = (GameObject) Object.Instantiate(gameObjectPrefab);
+            GameObject gameObject = (GameObject) Object.Instantiate(gameObjectPrefab);
             gameObject.name = typeof (T).Name + " (Test)";
 
             T instance = gameObject.GetComponent<T>();
