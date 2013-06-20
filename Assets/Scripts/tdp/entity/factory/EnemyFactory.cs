@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Assets.Scripts.sprite.manager;
+﻿using Assets.Scripts.sprite.manager;
 using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.constants;
 using Assets.Scripts.tdp.entity.behaviour.enemy;

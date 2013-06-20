@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Assets.Scripts.tdp.configuration;
 
 namespace Assets.Scripts.tdp.entity.behaviour.bullet

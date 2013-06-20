@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.tdp.constants;
 using UnityEngine;
-using System.Collections;
 
 namespace Assets.Scripts.tdp.entity.behaviour.bullet
 {

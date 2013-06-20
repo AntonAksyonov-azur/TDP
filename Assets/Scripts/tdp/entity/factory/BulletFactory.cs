@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Assets.Scripts.sprite.manager;
+﻿using Assets.Scripts.sprite.manager;
 using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.entity.behaviour.bullet;
 using UnityEngine;
@@ -20,7 +19,7 @@ namespace Assets.Scripts.tdp.entity.factory {
         }
 
         public GameObject CreateBullet(int lineId, int damage, Vector3 position) {
-            var bulletGameObject = (GameObject) Object.Instantiate(bulletPrefab, position, Quaternion.identity);
+            var bulletGameObject = (GameObject) Instantiate(bulletPrefab, position, Quaternion.identity);
 
             var bullet = bulletGameObject.GetComponent<Bullet>();
             bullet.lineId = lineId;

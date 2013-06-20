@@ -2,7 +2,6 @@
 using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.bullet;
-using Assets.Scripts.tdp.entity.behaviour.enemy;
 using Assets.Scripts.tdp.entity.factory;
 using Assets.Test.utility;
 using NUnit.Framework;

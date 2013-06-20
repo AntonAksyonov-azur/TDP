@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.tower;
-using Assets.Scripts.tdp.gui;
 using UnityEngine;
 
 namespace Assets.Scripts.tdp {

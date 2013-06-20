@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Assets.Scripts.tdp;
 using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.entity;
@@ -37,7 +34,7 @@ namespace Assets.Test.tdp.entity.behaviour.tower
             testData = new[] {
                 new TestCaseData {EnemyPositionX = 96, TowerPositionX = 0, ExpectedResult = true},
                 new TestCaseData {EnemyPositionX = 0, TowerPositionX = 0, ExpectedResult = false},
-                new TestCaseData {EnemyPositionX = -96, TowerPositionX = 0, ExpectedResult = false},
+                new TestCaseData {EnemyPositionX = -96, TowerPositionX = 0, ExpectedResult = false}
             };
         }
 

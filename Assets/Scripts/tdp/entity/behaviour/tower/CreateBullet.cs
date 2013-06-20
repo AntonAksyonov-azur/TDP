@@ -1,6 +1,4 @@
 ﻿using Assets.Scripts.tdp.entity.factory;
-using UnityEngine;
-using System.Collections;
 
 namespace Assets.Scripts.tdp.entity.behaviour.tower
 {
