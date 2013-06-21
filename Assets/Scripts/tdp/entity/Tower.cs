@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.tower;
+using Assets.Scripts.tdp.entity.behaviour.tower.shooting;
+using Assets.Scripts.tdp.entity.behaviour.tower.targeting;
 using UnityEngine;
 
 namespace Assets.Scripts.tdp {

@@ -4,6 +4,8 @@ using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.constants;
 using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.enemy;
+using Assets.Scripts.tdp.entity.behaviour.enemy.death;
+using Assets.Scripts.tdp.entity.behaviour.enemy.movement;
 using Assets.Scripts.tdp.entity.factory;
 using Assets.Test.utility;
 using NUnit.Framework;

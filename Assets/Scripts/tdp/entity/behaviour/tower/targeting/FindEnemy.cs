@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.tdp.constants;
 using UnityEngine;
 
-namespace Assets.Scripts.tdp.entity.behaviour.tower {
+namespace Assets.Scripts.tdp.entity.behaviour.tower.targeting {
     public class FindEnemy : IFindTargetStrategy {
         public GameObject FindTarget(Tower contextTower) {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.Enemy);

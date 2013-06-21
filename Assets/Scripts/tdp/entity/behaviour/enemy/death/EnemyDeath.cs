@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.sprite.manager;
 using UnityEngine;
 
-namespace Assets.Scripts.tdp.entity.behaviour.enemy {
+namespace Assets.Scripts.tdp.entity.behaviour.enemy.death {
     public class EnemyDeath : IEnemyDieStrategy {
         private readonly SpriteManager cachedSpriteManager;
 

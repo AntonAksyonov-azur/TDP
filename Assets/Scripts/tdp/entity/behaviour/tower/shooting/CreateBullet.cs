@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts.tdp.entity.factory;
 
-namespace Assets.Scripts.tdp.entity.behaviour.tower
-{
+namespace Assets.Scripts.tdp.entity.behaviour.tower.shooting {
     public class CreateBullet : IShootStrategy {
         private readonly BulletFactory bulletFactory;
 

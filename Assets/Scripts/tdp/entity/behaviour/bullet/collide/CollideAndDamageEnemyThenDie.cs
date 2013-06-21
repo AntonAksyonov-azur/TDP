@@ -1,13 +1,11 @@
 ﻿using Assets.Scripts.tdp.constants;
 using UnityEngine;
 
-namespace Assets.Scripts.tdp.entity.behaviour.bullet
-{
-    public class CollideAndDamageEnemyThenDie : IBulletBehaviourInCollisionStrategy
-    {
+namespace Assets.Scripts.tdp.entity.behaviour.bullet.collide {
+    public class CollideAndDamageEnemyThenDie : IBulletBehaviourInCollisionStrategy {
         public void OnCollision(Bullet contextBullet, Collider colliderObject) {
             if (colliderObject.tag == Tags.Enemy) {
-                Enemy enemy = colliderObject.GetComponent<Enemy>();
+                var enemy = colliderObject.GetComponent<Enemy>();
                 enemy.currentHealth -= contextBullet.damage;
                 contextBullet.destroyStrategy.Destroy(contextBullet);
             }

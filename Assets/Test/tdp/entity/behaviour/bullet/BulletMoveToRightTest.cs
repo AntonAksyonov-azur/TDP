@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.bullet;
+using Assets.Scripts.tdp.entity.behaviour.bullet.movement;
 using Assets.Test.utility;
 using NUnit.Framework;
 using UnityEngine;

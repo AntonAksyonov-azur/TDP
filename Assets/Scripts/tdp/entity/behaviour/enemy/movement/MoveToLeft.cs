@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.tdp.configuration;
 using UnityEngine;
 
-namespace Assets.Scripts.tdp.entity.behaviour.enemy {
+namespace Assets.Scripts.tdp.entity.behaviour.enemy.movement {
     public class MoveToLeft : IEnemyMoveStrategy {
         public void Move(Enemy contextEnemy, float elapsedTime) {
             float amountToMove = contextEnemy.speed * elapsedTime;

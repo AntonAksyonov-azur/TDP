@@ -1,6 +1,9 @@
 ﻿using Assets.Scripts.sprite.manager;
 using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.entity.behaviour.bullet;
+using Assets.Scripts.tdp.entity.behaviour.bullet.collide;
+using Assets.Scripts.tdp.entity.behaviour.bullet.destroy;
+using Assets.Scripts.tdp.entity.behaviour.bullet.movement;
 using UnityEngine;
 
 namespace Assets.Scripts.tdp.entity.factory {

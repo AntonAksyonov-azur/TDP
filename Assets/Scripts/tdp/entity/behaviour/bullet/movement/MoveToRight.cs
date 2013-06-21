@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-using Assets.Scripts.tdp.configuration;
+﻿using Assets.Scripts.tdp.configuration;
+using UnityEngine;
 
-namespace Assets.Scripts.tdp.entity.behaviour.bullet
-{
-    public class MoveToRight : IBulletMovementStrategy
-    {
+namespace Assets.Scripts.tdp.entity.behaviour.bullet.movement {
+    public class MoveToRight : IBulletMovementStrategy {
         public void Move(Bullet contextBullet, float elapsedTime) {
             float amountToMove = contextBullet.speed * elapsedTime;
             contextBullet.transform.Translate(Vector3.right * amountToMove);

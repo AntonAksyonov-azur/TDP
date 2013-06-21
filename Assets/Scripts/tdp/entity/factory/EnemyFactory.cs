@@ -2,6 +2,8 @@
 using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.constants;
 using Assets.Scripts.tdp.entity.behaviour.enemy;
+using Assets.Scripts.tdp.entity.behaviour.enemy.death;
+using Assets.Scripts.tdp.entity.behaviour.enemy.movement;
 using UnityEngine;
 
 namespace Assets.Scripts.tdp.entity.factory {

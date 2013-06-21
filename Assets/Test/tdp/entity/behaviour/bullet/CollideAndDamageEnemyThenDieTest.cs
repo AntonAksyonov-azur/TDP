@@ -2,6 +2,8 @@
 using Assets.Scripts.tdp.constants;
 using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.bullet;
+using Assets.Scripts.tdp.entity.behaviour.bullet.collide;
+using Assets.Scripts.tdp.entity.behaviour.bullet.destroy;
 using Assets.Test.utility;
 using NUnit.Framework;
 using UnityEngine;

@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.sprite.manager;
 using UnityEngine;
 
-namespace Assets.Scripts.tdp.entity.behaviour.bullet {
+namespace Assets.Scripts.tdp.entity.behaviour.bullet.destroy {
     public class DestroyBullet : IBulletDestroyStrategy {
         private readonly SpriteManager cachedSpriteManager;
 
