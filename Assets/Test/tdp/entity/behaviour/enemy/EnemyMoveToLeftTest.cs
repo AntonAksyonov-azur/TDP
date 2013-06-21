@@ -14,7 +14,7 @@ namespace Assets.Test.tdp.entity.behaviour.enemy {
         [SetUp]
         public void SetUp() {
             testEnemy =
-                ScriptInstantiator.InstantiateScript<Enemy>((GameObject) Resources.Load("Prefabs/EnemyPrefab"));
+                ScriptInstantiator.InstantiateScript<Enemy>((GameObject)Resources.Load("Prefabs/Entities/EnemyPrefab"));
             testEnemy.movementStrategy = new MoveToLeft();
             testEnemy.deathStrategy = new EnemyDeath();
             testEnemy.speed = Configuration.Enemies[EnemyType.Type1].Speed;

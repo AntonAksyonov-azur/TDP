@@ -14,7 +14,7 @@ namespace Assets.Test.tdp.entity.behaviour.bullet {
         public void SetUp() {
             
             testBullet =
-                ScriptInstantiator.InstantiateScript<Bullet>((GameObject) Resources.Load("Prefabs/BulletPrefab"));
+                ScriptInstantiator.InstantiateScript<Bullet>((GameObject) Resources.Load("Prefabs/Entities/BulletPrefab"));
             testBullet.movementStrategy = new MoveToRight();
             testBullet.speed = Configuration.BulletMovementSpeed;
         }

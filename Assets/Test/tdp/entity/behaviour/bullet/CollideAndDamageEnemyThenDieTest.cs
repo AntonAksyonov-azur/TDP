@@ -15,13 +15,13 @@ namespace Assets.Test.tdp.entity.behaviour.bullet {
         [SetUp]
         public void SetUp() {
             testBullet =
-                ScriptInstantiator.InstantiateScript<Bullet>((GameObject) Resources.Load("Prefabs/BulletPrefab"));
+                ScriptInstantiator.InstantiateScript<Bullet>((GameObject)Resources.Load("Prefabs/Entities/BulletPrefab"));
             testBullet.damage = Configuration.Towers[TowerType.Type1].Damage;
             testBullet.bulletBehaviourInCollision = new CollideAndDamageEnemyThenDie();
             testBullet.destroyStrategy = new DestroyBullet();
 
             testEnemy =
-                ScriptInstantiator.InstantiateScript<Enemy>((GameObject) Resources.Load("Prefabs/EnemyPrefab"));
+                ScriptInstantiator.InstantiateScript<Enemy>((GameObject)Resources.Load("Prefabs/Entities/EnemyPrefab"));
             testEnemy.maxHealth = Configuration.Enemies[EnemyType.Type1].MaxHealth;
             testEnemy.currentHealth = Configuration.Enemies[EnemyType.Type1].MaxHealth;
         }

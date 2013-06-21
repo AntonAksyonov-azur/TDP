@@ -19,14 +19,14 @@ namespace Assets.Test.tdp.entity.behaviour.tower
 
         [SetUp]
         public void SetUp() {
-            testTower = ScriptInstantiator.InstantiateScript<Tower>((GameObject)Resources.Load("Prefabs/TowerPrefab"));
+            testTower = ScriptInstantiator.InstantiateScript<Tower>((GameObject)Resources.Load("Prefabs/Entities/TowerPrefab"));
             testTower.targetingStrategy = new FindEnemy();
             testTower.gameObject.GetComponent<BoxCollider>().size = Configuration.TowerSize;
             testTower.attackRange = 100.0f; // Устанавливаем хардкодом, чтобы тест на функциональность не зависил от изменения конфигурации
             //Configuration.AttackRange[0] * Configuration.CellWidth;
             testTower.lineId = 0;
 
-            testEnemy = ScriptInstantiator.InstantiateScript<Enemy>((GameObject)Resources.Load("Prefabs/EnemyPrefab"));
+            testEnemy = ScriptInstantiator.InstantiateScript<Enemy>((GameObject)Resources.Load("Prefabs/Entities/EnemyPrefab"));
             testEnemy.deathStrategy = new EnemyDeath();
             testEnemy.gameObject.GetComponent<BoxCollider>().size = Configuration.EnemySize;
             testEnemy.lineId = 0;
