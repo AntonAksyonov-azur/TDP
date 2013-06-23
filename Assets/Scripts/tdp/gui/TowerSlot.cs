@@ -17,7 +17,9 @@ namespace Assets.Scripts.tdp.gui {
         private float cachedSize;
 
         public void Start() {
-            cachedPosition = CoordinateConverter.RealCoordinatesToScreen(transform.position.x, transform.position.y);
+            cachedPosition = CoordinateConverter.RealCoordinatesToScreen(
+                Configuration.ScreenWidth, Configuration.ScreenHeight,
+                transform.position.x, transform.position.y);
             cachedSize = Configuration.TowerSlotHeight / 3;
         }
 

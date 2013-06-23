@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.tdp.entity;
+﻿using Assets.Scripts.tdp.configuration;
+using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.utility;
 using UnityEngine;
 
@@ -17,8 +18,9 @@ namespace Assets.Scripts.tdp.gui {
             GUI.Label(new Rect(positionAtScreen.x - 16, positionAtScreen.y - 64, 64, 32),
                       string.Format("{0}/{1}", cachedEnemy.currentHealth, cachedEnemy.maxHealth));
             */
-            Vector2 positionAtScreen = CoordinateConverter.RealCoordinatesToScreen(transform.position.x,
-                                                                                   transform.position.y);
+            Vector2 positionAtScreen = CoordinateConverter.RealCoordinatesToScreen(
+                Configuration.ScreenWidth, Configuration.ScreenHeight,
+                transform.position.x, transform.position.y);
             GUI.DrawTexture(new Rect(
                                 positionAtScreen.x - 32,
                                 positionAtScreen.y - 32 - healthBarBody.height,
