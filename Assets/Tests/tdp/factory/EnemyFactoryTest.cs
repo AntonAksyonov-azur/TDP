@@ -7,12 +7,12 @@ using Assets.Scripts.tdp.entity.behaviour.enemy;
 using Assets.Scripts.tdp.entity.behaviour.enemy.death;
 using Assets.Scripts.tdp.entity.behaviour.enemy.movement;
 using Assets.Scripts.tdp.entity.factory;
-using Assets.Test.utility;
+using Assets.Tests.utility;
 using NUnit.Framework;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Assets.Test.tdp.factory
+namespace Assets.Tests.tdp.factory
 {
     [TestFixture]
 	public class EnemyFactoryTest {

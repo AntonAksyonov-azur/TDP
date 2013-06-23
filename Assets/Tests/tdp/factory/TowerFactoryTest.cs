@@ -8,12 +8,12 @@ using Assets.Scripts.tdp.entity.behaviour.tower.shooting;
 using Assets.Scripts.tdp.entity.behaviour.tower.targeting;
 using Assets.Scripts.tdp.entity.factory;
 using Assets.Scripts.tdp.gui;
-using Assets.Test.utility;
+using Assets.Tests.utility;
 using NUnit.Framework;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Assets.Test.tdp.factory {
+namespace Assets.Tests.tdp.factory {
     [TestFixture]
     public class TowerFactoryTest {
         private TowerSlot towerSlot;

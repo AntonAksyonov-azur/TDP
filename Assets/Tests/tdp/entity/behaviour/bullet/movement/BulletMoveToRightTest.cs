@@ -1,15 +1,25 @@
-﻿using Assets.Scripts.tdp.entity;
+﻿using Assets.Scripts.sprite.manager;
+using Assets.Scripts.tdp.configuration;
+using Assets.Scripts.tdp.entity;
+using Assets.Scripts.tdp.entity.behaviour.bullet.destroy;
 using Assets.Scripts.tdp.entity.behaviour.bullet.movement;
-using Assets.Test.utility;
+using Assets.Tests.utility;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Assets.Test.tdp.entity.behaviour.bullet.movement {
+namespace Assets.Tests.tdp.entity.behaviour.bullet.movement {
+
+    /// <summary>
+    /// Проверяет, что координата x тестовой пули изменяются верно
+    /// В соответствии с заданной скоростью и прошедшим временем
+    /// При использовании стратегии движения MoveToRight
+    /// </summary>
     [TestFixture]
     public class BulletMoveToRightTest {
         private Bullet testBullet;
         private const float BulletMovementSpeed = 1.0f;
         private const float BulletMovementTime = 100.0f;
+        private readonly Vector3 startBulletPosition = new Vector3(0, 0, 0);
 
         [SetUp]
         public void SetUp() {
@@ -18,6 +28,13 @@ namespace Assets.Test.tdp.entity.behaviour.bullet.movement {
                     (GameObject) Resources.Load("Prefabs/Entities/BulletPrefab"));
             testBullet.movementStrategy = new MoveToRight();
             testBullet.speed = BulletMovementSpeed;
+            testBullet.transform.position = startBulletPosition;
+
+            testBullet.sprite = new Sprite();
+
+            // С учемтом, что границы поля по x: -350 до 350
+            Configuration.LeftGameFieldBorderX = -350;
+            Configuration.RightGameFieldBorderX = 350;
         }
 
         [Test]
@@ -28,6 +45,8 @@ namespace Assets.Test.tdp.entity.behaviour.bullet.movement {
 
             Assert.That(newPosition.x,
                         Is.EqualTo(oldPosition.x + BulletMovementSpeed * BulletMovementTime));
+            Assert.That(newPosition.y, Is.EqualTo(oldPosition.y));
+            Assert.That(newPosition.z, Is.EqualTo(oldPosition.z));
         }
 
         [TearDown]

@@ -1,16 +1,23 @@
 ﻿using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.enemy.death;
 using Assets.Scripts.tdp.entity.behaviour.enemy.movement;
-using Assets.Test.utility;
+using Assets.Tests.utility;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Assets.Test.tdp.entity.behaviour.enemy.movement {
+namespace Assets.Tests.tdp.entity.behaviour.enemy.movement {
+
+    /// <summary>
+    /// Проверяет, что координата x тестового противника изменяются верно
+    /// В соответствии с заданной скоростью и прошедшим временем
+    /// При использовании стратегии движения MoveToLeft
+    /// </summary>
     [TestFixture]
     public class EnemyMoveToLeftTest {
         private Enemy testEnemy;
         private const float EnemyMovementSpeed = 1.0f;
         private const float EnemyMovementTime = 100.0f;
+        private readonly Vector3 startEnemyPosition = new Vector3(0, 0, 0);
 
         [SetUp]
         public void SetUp() {
@@ -20,6 +27,7 @@ namespace Assets.Test.tdp.entity.behaviour.enemy.movement {
             testEnemy.movementStrategy = new MoveToLeft();
             testEnemy.deathStrategy = new EnemyDeath();
             testEnemy.speed = EnemyMovementSpeed;
+            testEnemy.transform.position = startEnemyPosition;
         }
 
         [Test]
@@ -30,11 +38,12 @@ namespace Assets.Test.tdp.entity.behaviour.enemy.movement {
 
             Assert.That(newPosition.x,
                         Is.EqualTo(oldPosition.x - EnemyMovementSpeed * EnemyMovementTime));
+            Assert.That(newPosition.y, Is.EqualTo(oldPosition.y));
+            Assert.That(newPosition.z, Is.EqualTo(oldPosition.z));
         }
 
         [TearDown]
-        public void TearDown()
-        {
+        public void TearDown() {
             Object.DestroyImmediate(testEnemy.gameObject);
             ScriptInstantiator.CleanUp();
         }

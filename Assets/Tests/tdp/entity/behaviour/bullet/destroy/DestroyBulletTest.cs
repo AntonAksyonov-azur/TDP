@@ -1,11 +1,11 @@
 ﻿using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.bullet.destroy;
-using Assets.Test.utility;
+using Assets.Tests.utility;
 using NUnit.Framework;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Assets.Test.tdp.entity.behaviour.bullet.destroy {
+namespace Assets.Tests.tdp.entity.behaviour.bullet.destroy {
     /// <summary>
     /// Тест проверяет, что уничтожение игрового объекта срабатывает
     /// Сложности, связанные с этим тестом:

@@ -3,11 +3,11 @@ using Assets.Scripts.tdp;
 using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.tower.shooting;
 using Assets.Scripts.tdp.entity.factory;
-using Assets.Test.utility;
+using Assets.Tests.utility;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Assets.Test.tdp.entity.behaviour.tower.shooting {
+namespace Assets.Tests.tdp.entity.behaviour.tower.shooting {
     [TestFixture]
     public class CreateBulletTest {
         private Bullet testBullet;

@@ -4,7 +4,7 @@ using Assets.Scripts.tdp.utility;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Assets.Test.tdp.utility {
+namespace Assets.Tests.tdp.utility {
 
     [TestFixture]
     public class CoordinateConverterTest {

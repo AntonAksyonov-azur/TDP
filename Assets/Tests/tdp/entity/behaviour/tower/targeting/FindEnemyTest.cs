@@ -6,12 +6,12 @@ using Assets.Scripts.tdp.entity.behaviour.enemy;
 using Assets.Scripts.tdp.entity.behaviour.enemy.death;
 using Assets.Scripts.tdp.entity.behaviour.tower;
 using Assets.Scripts.tdp.entity.behaviour.tower.targeting;
-using Assets.Test.utility;
+using Assets.Tests.utility;
 using NUnit.Framework;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Assets.Test.tdp.entity.behaviour.tower
+namespace Assets.Tests.tdp.entity.behaviour.tower
 {
     [TestFixture]
 	public class FindEnemyTest {

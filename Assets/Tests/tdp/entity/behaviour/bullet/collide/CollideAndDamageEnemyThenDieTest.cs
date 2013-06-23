@@ -3,11 +3,11 @@ using Assets.Scripts.tdp.constants;
 using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.behaviour.bullet.collide;
 using Assets.Scripts.tdp.entity.behaviour.bullet.destroy;
-using Assets.Test.utility;
+using Assets.Tests.utility;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Assets.Test.tdp.entity.behaviour.bullet.collide {
+namespace Assets.Tests.tdp.entity.behaviour.bullet.collide {
 
     [TestFixture]
     public class CollideAndDamageEnemyThenDieTest {

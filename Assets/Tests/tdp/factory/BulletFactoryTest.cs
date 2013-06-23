@@ -6,11 +6,11 @@ using Assets.Scripts.tdp.entity.behaviour.bullet.collide;
 using Assets.Scripts.tdp.entity.behaviour.bullet.destroy;
 using Assets.Scripts.tdp.entity.behaviour.bullet.movement;
 using Assets.Scripts.tdp.entity.factory;
-using Assets.Test.utility;
+using Assets.Tests.utility;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Assets.Test.tdp.factory {
+namespace Assets.Tests.tdp.factory {
     [TestFixture]
     public class BulletFactoryTest {
         private BulletFactory bulletFactory;
