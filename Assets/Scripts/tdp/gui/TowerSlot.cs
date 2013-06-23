@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.constants;
-using Assets.Scripts.tdp.entity.factory;
+using Assets.Scripts.tdp.entity.tower.factory;
 using Assets.Scripts.tdp.utility;
 using UnityEngine;
 

@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.entity;
+using Assets.Scripts.tdp.entity.enemy;
 using Assets.Scripts.tdp.utility;
 using UnityEngine;
 

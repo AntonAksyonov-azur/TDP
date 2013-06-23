@@ -1,10 +1,12 @@
-﻿using Assets.Scripts.sprite.manager;
+﻿using Assets.Scripts.net.extension;
+using Assets.Scripts.sprite.manager;
 using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.constants;
-using Assets.Scripts.tdp.entity.factory;
+using Assets.Scripts.tdp.entity.bullet.factory;
+using Assets.Scripts.tdp.entity.enemy.factory;
+using Assets.Scripts.tdp.entity.tower.factory;
 using Assets.Scripts.tdp.gui;
 using UnityEngine;
-using Assets.Scripts.net.extension;
 
 namespace Assets.Scripts.tdp {
     public class Gameplay : MonoBehaviour, INotifyEnemyPassed {
