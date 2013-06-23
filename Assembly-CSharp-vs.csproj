@@ -54,7 +54,6 @@
      <Compile Include="Assets\Scripts\tdp\configuration\EnemyConfiguration.cs" />
      <Compile Include="Assets\Scripts\tdp\configuration\TowerConfiguration.cs" />
      <Compile Include="Assets\Scripts\tdp\constants\EnemyType.cs" />
-     <Compile Include="Assets\Scripts\tdp\constants\EnemyTypeExtension.cs" />
      <Compile Include="Assets\Scripts\tdp\constants\SceneNames.cs" />
      <Compile Include="Assets\Scripts\tdp\constants\Tags.cs" />
      <Compile Include="Assets\Scripts\tdp\constants\TowerType.cs" />
@@ -65,7 +64,6 @@
      <Compile Include="Assets\Scripts\tdp\entity\behaviour\bullet\collide\CollideAndDamageEnemyThenDie.cs" />
      <Compile Include="Assets\Scripts\tdp\entity\behaviour\bullet\collide\IBulletBehaviourInCollisionStrategy.cs" />
      <Compile Include="Assets\Scripts\tdp\entity\behaviour\bullet\destroy\DestroyBullet.cs" />
-     <Compile Include="Assets\Scripts\tdp\entity\behaviour\bullet\destroy\DestroyBulletForTest.cs" />
      <Compile Include="Assets\Scripts\tdp\entity\behaviour\bullet\destroy\IBulletDestroyStrategy.cs" />
      <Compile Include="Assets\Scripts\tdp\entity\behaviour\bullet\movement\IBulletMovementStrategy.cs" />
      <Compile Include="Assets\Scripts\tdp\entity\behaviour\bullet\movement\MoveToRight.cs" />
@@ -93,6 +91,7 @@
      <Compile Include="Assets\Test\tdp\entity\behaviour\bullet\destroy\DestroyBulletTest.cs" />
      <Compile Include="Assets\Test\tdp\entity\behaviour\bullet\movement\BulletMoveToRightTest.cs" />
      <Compile Include="Assets\Test\tdp\entity\behaviour\enemy\movement\EnemyMoveToLeftTest.cs" />
+     <Compile Include="Assets\Test\tdp\entity\behaviour\tower\shooting\CreateBulletTest.cs" />
      <Compile Include="Assets\Test\tdp\entity\behaviour\tower\targeting\FindEnemyTest.cs" />
      <Compile Include="Assets\Test\tdp\factory\BulletFactoryTest.cs" />
      <Compile Include="Assets\Test\tdp\factory\EnemyFactoryTest.cs" />

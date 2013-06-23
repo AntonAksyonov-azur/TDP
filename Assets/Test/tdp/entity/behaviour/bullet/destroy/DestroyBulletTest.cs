@@ -27,29 +27,22 @@ namespace Assets.Test.tdp.entity.behaviour.bullet.destroy {
             testBullet =
                 ScriptInstantiator.InstantiateScript<Bullet>(
                     (GameObject) Resources.Load("Prefabs/Entities/BulletPrefab"));
-            testBullet.destroyStrategy = new DestroyBulletForTest();
+            testBullet.destroyStrategy = new DestroyBullet();
         }
 
         [Test]
-        [ExpectedException(typeof (SuccessException))]
         public void DestroyTest() {
             Assert.NotNull(testBullet);
 
             testBullet.destroyStrategy.Destroy(testBullet);
 
-            if (testBullet == null) {
-                Assert.Pass("Successfully destroyes");
-            }
-            else {
-                Assert.Fail("Failed to destoy object");
-            }
+            Assert.Null(testBullet.sprite);
 
-            //Assert.That(testBullet, Is.EqualTo(null));
         }
 
         [TearDown]
         public void TearDown() {
-            // Если тест провалился, ресурсы должны должны быть очищены
+            // Если тест провалился, ресурсы все равно должны быть очищены
             if (testBullet != null) {
                 Object.DestroyImmediate(testBullet);
             }
