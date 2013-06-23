@@ -58,8 +58,7 @@ namespace Assets.Test.tdp.factory {
             testBullet.GetComponent<Bullet>().sprite = null;
 
             Object.DestroyImmediate(testBullet);
-
-            Object.Destroy(bulletFactory.gameObject);
+            Object.DestroyImmediate(bulletFactory.gameObject);
         }
     }
 }
