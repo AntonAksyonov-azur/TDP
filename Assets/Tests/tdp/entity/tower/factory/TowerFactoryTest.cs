@@ -44,31 +44,33 @@ namespace Assets.Tests.tdp.entity.tower.factory {
         public void CreateEnemyTest() {
             foreach (TowerType towerType in towerTypes) {
                 testTower = towerFactory.CreateTower(towerSlot, towerType);
-                Assert.NotNull(testTower, String.Format("Tower Game object wasn't created, was type {0}", towerType));
+                Assert.NotNull(testTower, 
+                    String.Format("Tower Game object wasn't created, was type {0}", towerType));
+
                 var towerInstance = testTower.GetComponent<Tower>();
 
                 Assert.NotNull(towerInstance,
                                String.Format("Tower script instance wasn't created, was type {0}", towerType));
-                Assert.That(towerInstance.lineId, Is.EqualTo(lineId), "Line id is wrong, was type {0}", towerType);
+                Assert.That(towerInstance.lineId, Is.EqualTo(lineId),
+                    String.Format("Line id is wrong, was type {0}", towerType));
                 Assert.That(towerInstance.attackRange,
                             Is.EqualTo(Configuration.Towers[towerType].AttackRange * Configuration.CellWidth),
-                            "Attack range is not as in configuration, was type {0}", towerType);
+                            String.Format("Attack range is not as in configuration, was type {0}", towerType));
                 Assert.That(towerInstance.shootsPerSecond,
                             Is.EqualTo(Configuration.Towers[towerType].ShootsPerSecond),
-                            "Shoots per second is not as in configuration, was type {0}", towerType);
+                            String.Format("Shoots per second is not as in configuration, was type {0}", towerType));
                 Assert.That(towerInstance.damage,
                             Is.EqualTo(Configuration.Towers[towerType].Damage),
-                            "Damage is not as in configuration, was type {0}", towerType);
-
-                Assert.That(towerInstance.transform.position, Is.EqualTo(position), "Position is wrong, was type {0}",
-                            towerType);
-
+                            String.Format("Damage is not as in configuration, was type {0}", towerType));
+                Assert.That(towerInstance.transform.position, Is.EqualTo(position), 
+                            String.Format("Position is wrong, was type {0}",towerType));
                 Assert.That(towerInstance.shootingStrategy, Is.InstanceOf(typeof (CreateBullet)),
-                            "Shooting strategy is wrong, was type {0}", towerType);
+                            String.Format("Shooting strategy is wrong, was type {0}", towerType));
                 Assert.That(towerInstance.targetingStrategy, Is.InstanceOf(typeof (FindEnemy)),
-                            "Targeting strategy is wrong, was type {0}", towerType);
+                            String.Format("Targeting strategy is wrong, was type {0}", towerType));
 
-                Assert.NotNull(testTower.GetComponent<Tower>().sprite, "Sprite wasn't created, was type {0}", towerType);
+                Assert.NotNull(testTower.GetComponent<Tower>().sprite, 
+                    String.Format("Sprite wasn't created, was type {0}", towerType));
 
                 TearDownTestObject();
             }

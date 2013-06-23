@@ -2,6 +2,7 @@
 using Assets.Scripts.tdp.configuration;
 using Assets.Scripts.tdp.entity.bullet;
 using Assets.Scripts.tdp.entity.bullet.behaviour.movement;
+using Assets.Scripts.tdp.entity.bullet.factory;
 using Assets.Tests.utility;
 using NUnit.Framework;
 using UnityEngine;
@@ -34,6 +35,12 @@ namespace Assets.Tests.tdp.entity.bullet.behaviour.movement {
             // С учемтом, что границы поля по x: -350 до 350
             Configuration.LeftGameFieldBorderX = -350;
             Configuration.RightGameFieldBorderX = 350;
+
+            var bulletFactory =
+                ScriptInstantiator.InstantiateScript<BulletFactory>(
+                    (GameObject) Resources.Load("Prefabs/Factories/BulletFactoryPrefab"));
+            bulletFactory.spriteManager = (SpriteManager) Object.FindObjectOfType(typeof (SpriteManager));
+            bulletFactory.Start();
         }
 
         [Test]

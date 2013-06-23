@@ -16,14 +16,14 @@ namespace Assets.Tests.tdp.entity.tower.behaviour.targeting
         private Tower testTower;
         private Enemy testEnemy;
         private TestCaseData[] testData;
+        private const float TestTowerAttackRange = 100.0f;
 
         [SetUp]
         public void SetUp() {
             testTower = ScriptInstantiator.InstantiateScript<Tower>((GameObject)Resources.Load("Prefabs/Entities/TowerPrefab"));
             testTower.targetingStrategy = new FindEnemy();
             testTower.gameObject.GetComponent<BoxCollider>().size = Configuration.TowerSize;
-            testTower.attackRange = 100.0f; // Устанавливаем хардкодом, чтобы тест на функциональность не зависил от изменения конфигурации
-            //Configuration.AttackRange[0] * Configuration.CellWidth;
+            testTower.attackRange = TestTowerAttackRange; // Устанавливаем хардкодом, чтобы тест на функциональность не зависил от изменения конфигурации
             testTower.lineId = 0;
 
             testEnemy = ScriptInstantiator.InstantiateScript<Enemy>((GameObject)Resources.Load("Prefabs/Entities/EnemyPrefab"));

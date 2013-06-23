@@ -14,19 +14,23 @@ namespace Assets.Tests.tdp.entity.bullet.behaviour.collision {
     public class CollideAndDamageEnemyThenDieTest {
         private Bullet testBullet;
         private Enemy testEnemy;
-        
+        private const int TestTowerDamage = 100;
+        private const int TestTowerMaxHealth = 1000;
+        private readonly Vector3 startBulletPosition = new Vector3(0, 0, 0);
+
         [SetUp]
         public void SetUp() {
             testBullet =
                 ScriptInstantiator.InstantiateScript<Bullet>((GameObject)Resources.Load("Prefabs/Entities/BulletPrefab"));
-            testBullet.damage = Configuration.Towers[TowerType.Type1].Damage;
+            testBullet.damage = TestTowerDamage;
             testBullet.bulletBehaviourInCollision = new CollideAndDamageEnemyThenDie();
             testBullet.destroyStrategy = new DestroyBullet();
 
             testEnemy =
                 ScriptInstantiator.InstantiateScript<Enemy>((GameObject)Resources.Load("Prefabs/Entities/EnemyPrefab"));
-            testEnemy.maxHealth = Configuration.Enemies[EnemyType.Type1].MaxHealth;
-            testEnemy.currentHealth = Configuration.Enemies[EnemyType.Type1].MaxHealth;
+            testEnemy.maxHealth = TestTowerMaxHealth;
+            testEnemy.currentHealth = TestTowerMaxHealth;
+            testEnemy.transform.position = startBulletPosition;
         }
 
         [Test]
