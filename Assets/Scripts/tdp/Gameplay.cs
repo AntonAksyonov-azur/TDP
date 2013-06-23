@@ -10,21 +10,23 @@ using UnityEngine;
 
 namespace Assets.Scripts.tdp {
     public class Gameplay : MonoBehaviour, INotifyEnemyPassed {
-        public EnemyFactory enemyFactory;
-        public TowerFactory towerFactory;
-        public BulletFactory bulletFactory;
-        
+        public SpriteManager mainSpriteManager;
+
         public GameObject linePrefab;
         public GameObject towerSlotPrefab;
 
-        public SpriteManager mainSpriteManager;
+        public BulletFactory bulletFactory;
+        public EnemyFactory enemyFactory;
+        public TowerFactory towerFactory;
+
+        private float elapsedTimeSinceLastEnemyAppears;
 
         public float elapsedGameplayTime { get; private set; }
-        private float elapsedTimeSinceLastEnemyAppears;
-        
+
         public int enemiesPassed { get; private set; }
 
         #region Initialization Methods
+
         public void Start() {
             CreateLines();
 
@@ -41,7 +43,7 @@ namespace Assets.Scripts.tdp {
             Rect lineFrame = Configuration.LineFrame;
 
             for (int i = 0; i < Configuration.LinesCount; i++) {
-                var lineGameObject =
+                GameObject lineGameObject =
                     (GameObject) Instantiate(linePrefab,
                                              new Vector3(Configuration.FirstLinePositionX,
                                                          Configuration.FirstLinePositionY - i * lineFrame.height),
@@ -60,19 +62,22 @@ namespace Assets.Scripts.tdp {
         private void CreateTowerSlots() {
             for (int i = 0; i < Configuration.LinesCount; i++) {
                 for (int j = 0; j < Configuration.TowerSlotsCount; j++) {
-                    var towerSlotGameObject = (GameObject) Instantiate(towerSlotPrefab,
-                                                                       new Vector3(
-                                                                           Configuration.FirstTowerSlotPositionX +
-                                                                           j * Configuration.TowerSlotWidth,
-                                                                           Configuration.FirstTowerSlotPositionY -
-                                                                           i * Configuration.LineHeight),
-                                                                       Quaternion.identity);
-                    var towerSlot = towerSlotGameObject.GetComponent<TowerSlot>();
+                    Vector2 vector = new Vector2(
+                        Configuration.FirstTowerSlotPositionX + j * Configuration.TowerSlotWidth,
+                        Configuration.FirstTowerSlotPositionY - i * Configuration.LineHeight);
+
+                    GameObject towerSlotGameObject =
+                        (GameObject) Instantiate(
+                            towerSlotPrefab,
+                            vector,
+                            Quaternion.identity);
+                    TowerSlot towerSlot = towerSlotGameObject.GetComponent<TowerSlot>();
                     towerSlot.lineId = i;
                     towerSlot.towerFactory = towerFactory;
                 }
             }
         }
+
         #endregion
 
         #region Update Methods
@@ -93,11 +98,10 @@ namespace Assets.Scripts.tdp {
 
         private void CreateRandomEnemy() {
             int targetLineId = Random.Range(0, Configuration.LinesCount);
+            Vector2 vector = new Vector2(Configuration.FirstEnemyPositionX,
+                                     Configuration.FirstEnemyPositionY - targetLineId * Configuration.LineHeight);
 
-            enemyFactory.CreateEnemy(
-                new Vector2(Configuration.FirstEnemyPositionX,
-                            Configuration.FirstEnemyPositionY - targetLineId * Configuration.LineHeight), targetLineId,
-                Configuration.Enemies.GetRandomKeyViaUnityRandom());
+            enemyFactory.CreateEnemy(vector, targetLineId, Configuration.Enemies.GetRandomKeyViaUnityRandom());
         }
 
         private void UpdateGameStatus() {
@@ -111,12 +115,14 @@ namespace Assets.Scripts.tdp {
         #endregion
 
         #region INofityEnemyPassed
+
         public void EnemyPassed() {
             enemiesPassed += 1;
             if (enemiesPassed >= Configuration.EnemiesPassesCountToLoose) {
                 Application.LoadLevel(SceneNames.Loose);
             }
         }
+
         #endregion
     }
 }
