@@ -43,11 +43,11 @@ namespace Assets.Scripts.tdp {
             Rect lineFrame = Configuration.LineFrame;
 
             for (int i = 0; i < Configuration.LinesCount; i++) {
+                Vector3 vector = new Vector3(Configuration.FirstLinePositionX,
+                                      Configuration.FirstLinePositionY - i * lineFrame.height);
+
                 GameObject lineGameObject =
-                    (GameObject) Instantiate(linePrefab,
-                                             new Vector3(Configuration.FirstLinePositionX,
-                                                         Configuration.FirstLinePositionY - i * lineFrame.height),
-                                             Quaternion.identity);
+                    (GameObject) Instantiate(linePrefab, vector, Quaternion.identity);
 
                 mainSpriteManager.AddSprite(lineGameObject,
                                             lineFrame.width,
