@@ -4,18 +4,21 @@ using UnityEngine;
 
 namespace Assets.Scripts.tdp.scenes {
     public class LooseScene : MonoBehaviour {
-        private Rect buttonStartRectangleSize = new Rect(0, 0, 100, 100);
-        private Rect labelRectangleSize = new Rect(0, 0, 70, 30);
+        private Rect buttonStartRectangleSize;
+        private Rect labelRectangleSize;
+
+        public void Start() {
+            buttonStartRectangleSize = new Rect(
+                Configuration.ScreenWidth / 2 - 50, Configuration.ScreenHeight / 2 - 50, 100, 100);
+
+            labelRectangleSize = new Rect(
+                Configuration.ScreenWidth / 2 - 35, Configuration.ScreenHeight / 2 - 90, 70, 30);
+        }
 
         public void OnGUI() {
-            GUI.Label(new Rect(Configuration.ScreenWidth / 2 - labelRectangleSize.width / 2,
-                               Configuration.ScreenHeight / 2 - buttonStartRectangleSize.height,
-                               labelRectangleSize.width, labelRectangleSize.height), "You loose!");
+            GUI.Label(labelRectangleSize, "You loose!");
 
-            if (GUI.Button(new Rect(
-                               Configuration.ScreenWidth / 2 - buttonStartRectangleSize.width / 2,
-                               Configuration.ScreenHeight / 2 - buttonStartRectangleSize.height / 2,
-                               buttonStartRectangleSize.width, buttonStartRectangleSize.height), "Try again")) {
+            if (GUI.Button(buttonStartRectangleSize, "Try again")) {
                 Application.LoadLevel(SceneNames.Main);
             }
         }
