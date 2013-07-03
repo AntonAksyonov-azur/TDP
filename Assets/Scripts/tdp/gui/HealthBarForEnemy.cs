@@ -1,17 +1,17 @@
 ﻿using Assets.Scripts.tdp.configuration;
-using Assets.Scripts.tdp.entity;
 using Assets.Scripts.tdp.entity.enemy;
 using Assets.Scripts.tdp.utility;
 using UnityEngine;
 
 namespace Assets.Scripts.tdp.gui {
     public class HealthBarForEnemy : MonoBehaviour {
-        private Enemy cachedEnemy;          
-        public Texture healthBarBody;
-        public Texture healthBarBorder;
+        private Enemy cachedEnemy;
+        [SerializeField] private Texture healthBarBody;
+        [SerializeField] private Texture healthBarBorder;
 
         public void Start() {
-            cachedEnemy = gameObject.GetComponent<Enemy>();  // Можно использовать некий базовый класс, у которого будет "здоровье"
+            cachedEnemy = gameObject.GetComponent<Enemy>();
+                // Можно использовать некий базовый класс, у которого будет "здоровье"
         }
 
         public void OnGUI() {
@@ -25,7 +25,7 @@ namespace Assets.Scripts.tdp.gui {
             GUI.DrawTexture(new Rect(
                                 positionAtScreen.x - 32,
                                 positionAtScreen.y - 32 - healthBarBody.height,
-                                healthBarBorder.width * ((float)cachedEnemy.currentHealth / cachedEnemy.maxHealth),
+                                healthBarBorder.width * ((float) cachedEnemy.currentHealth / cachedEnemy.maxHealth),
                                 healthBarBorder.height), healthBarBody);
             GUI.DrawTexture(new Rect(
                                 positionAtScreen.x - 32,
