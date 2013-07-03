@@ -9,7 +9,9 @@ namespace Assets.Scripts.tdp.scenes {
 
         public void Start() {
             buttonStartRectangleSize = new Rect(
-                Configuration.ScreenWidth / 2 - 50, Configuration.ScreenHeight / 2 - 50, 100, 100);
+                Configuration.ScreenWidth / 2 - 50, 
+                Configuration.ScreenHeight / 2 - 50, 
+                100, 100);
         }
 
         public void OnGUI() {
