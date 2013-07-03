@@ -2,9 +2,9 @@
 
 namespace Assets.Scripts.tdp.constants {
     public static class SceneNames {
-        public static String Start = "Start";
-        public static String Main = "Main";
-        public static String Win = "Win";
-        public static String Loose = "Loose";
+        public readonly static String Start = "Start";
+        public readonly static String Main = "Main";
+        public readonly static String Win = "Win";
+        public readonly static String Loose = "Loose";
     }
 }
