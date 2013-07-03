@@ -10,20 +10,16 @@ using UnityEngine;
 
 namespace Assets.Scripts.tdp {
     public class Gameplay : MonoBehaviour, INotifyEnemyPassed {
-        public SpriteManager mainSpriteManager;
-
-        public GameObject linePrefab;
-        public GameObject towerSlotPrefab;
-
-        public BulletFactory bulletFactory;
-        public EnemyFactory enemyFactory;
-        public TowerFactory towerFactory;
+        [SerializeField] private SpriteManager mainSpriteManager;
+        [SerializeField] private GameObject linePrefab;
+        [SerializeField] private GameObject towerSlotPrefab;
+        [SerializeField] private BulletFactory bulletFactory;
+        [SerializeField] private EnemyFactory enemyFactory;
+        [SerializeField] private TowerFactory towerFactory;
 
         private float elapsedTimeSinceLastEnemyAppears;
-
-        public float elapsedGameplayTime { get; private set; }
-
-        public int enemiesPassed { get; private set; }
+        private float elapsedGameplayTime;
+        private int enemiesPassed;
 
         #region Initialization Methods
 
@@ -44,18 +40,19 @@ namespace Assets.Scripts.tdp {
 
             for (int i = 0; i < Configuration.LinesCount; i++) {
                 Vector3 vector = new Vector3(Configuration.FirstLinePositionX,
-                                      Configuration.FirstLinePositionY - i * lineFrame.height);
+                                             Configuration.FirstLinePositionY - i * lineFrame.height);
 
                 GameObject lineGameObject =
                     (GameObject) Instantiate(linePrefab, vector, Quaternion.identity);
 
-                mainSpriteManager.AddSprite(lineGameObject,
-                                            lineFrame.width,
-                                            lineFrame.height,
-                                            (int) lineFrame.x,
-                                            (int) (lineFrame.y + lineFrame.height),
-                                            (int) lineFrame.width, (int) lineFrame.height,
-                                            false);
+                mainSpriteManager.AddSprite(
+                    lineGameObject,
+                    lineFrame.width,
+                    lineFrame.height,
+                    (int) lineFrame.x,
+                    (int) (lineFrame.y + lineFrame.height),
+                    (int) lineFrame.width, (int) lineFrame.height,
+                    false);
             }
         }
 
@@ -98,10 +95,15 @@ namespace Assets.Scripts.tdp {
 
         private void CreateRandomEnemy() {
             int targetLineId = Random.Range(0, Configuration.LinesCount);
-            Vector2 vector = new Vector2(Configuration.FirstEnemyPositionX,
-                                     Configuration.FirstEnemyPositionY - targetLineId * Configuration.LineHeight);
+            Vector2 vector =
+                new Vector2(
+                    Configuration.FirstEnemyPositionX,
+                    Configuration.FirstEnemyPositionY - targetLineId * Configuration.LineHeight);
 
-            enemyFactory.CreateEnemy(vector, targetLineId, Configuration.Enemies.GetRandomKeyViaUnityRandom());
+            enemyFactory.CreateEnemy(
+                vector,
+                targetLineId,
+                Configuration.Enemies.GetRandomKeyViaUnityRandom());
         }
 
         private void UpdateGameStatus() {
@@ -121,6 +123,18 @@ namespace Assets.Scripts.tdp {
             if (enemiesPassed >= Configuration.EnemiesPassesCountToLoose) {
                 Application.LoadLevel(SceneNames.Loose);
             }
+        }
+
+        #endregion
+
+        #region Get And Set methods
+
+        public float GetElapsedGameplayTime() {
+            return elapsedGameplayTime;
+        }
+
+        public float GetEnemiesPassed() {
+            return enemiesPassed;
         }
 
         #endregion

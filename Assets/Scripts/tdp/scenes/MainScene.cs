@@ -11,8 +11,13 @@ public class MainScene : MonoBehaviour {
     }
 
     public void OnGUI() {
-        GUILayout.Label(string.Format("Elapsed seconds: {0:f}; need to hold: {1:f}", cachedGameplay.elapsedGameplayTime,
-                                      Configuration.SecondsToEndGame));
-        GUILayout.Label(string.Format("Enemies passed: {0}", cachedGameplay.enemiesPassed));
+        GUILayout.Label(
+            string.Format("Elapsed seconds: {0:f}; need to hold: {1:f}",
+            cachedGameplay.GetElapsedGameplayTime(),
+            Configuration.SecondsToEndGame)
+        );
+        GUILayout.Label(
+            string.Format("Enemies passed: {0}", cachedGameplay.GetEnemiesPassed())
+        );
     }
 }
