@@ -20,7 +20,7 @@ namespace Assets.Tests.tdp.entity.tower.factory {
         private GameObject testTower;
 
         private int lineId = 1;
-        private TowerType[] towerTypes = new[] {TowerType.Type1, TowerType.Type2, TowerType.Type3 };
+        private TowerType[] towerTypes = new[] {TowerType.Type1, TowerType.Type2, TowerType.Type3};
         private readonly Vector3 position = new Vector3(1, 2, 10);
 
         [SetUp]
@@ -34,8 +34,8 @@ namespace Assets.Tests.tdp.entity.tower.factory {
             towerSlot =
                 ScriptInstantiator.InstantiateScript<TowerSlot>(
                     (GameObject) Resources.Load("Prefabs/TowerSlotPrefab"));
-            towerSlot.towerFactory = towerFactory;
-            towerSlot.lineId = lineId;
+            towerSlot.SetTowerFactory(towerFactory);
+            towerSlot.SetLineId(lineId);
             towerSlot.transform.position = position;
             towerSlot.Start();
         }
@@ -44,15 +44,15 @@ namespace Assets.Tests.tdp.entity.tower.factory {
         public void CreateEnemyTest() {
             foreach (TowerType towerType in towerTypes) {
                 testTower = towerFactory.CreateTower(towerSlot, towerType);
-                Assert.NotNull(testTower, 
-                    String.Format("Tower Game object wasn't created, was type {0}", towerType));
+                Assert.NotNull(testTower,
+                               String.Format("Tower Game object wasn't created, was type {0}", towerType));
 
                 var towerInstance = testTower.GetComponent<Tower>();
 
                 Assert.NotNull(towerInstance,
                                String.Format("Tower script instance wasn't created, was type {0}", towerType));
                 Assert.That(towerInstance.lineId, Is.EqualTo(lineId),
-                    String.Format("Line id is wrong, was type {0}", towerType));
+                            String.Format("Line id is wrong, was type {0}", towerType));
                 Assert.That(towerInstance.attackRange,
                             Is.EqualTo(Configuration.Towers[towerType].AttackRange * Configuration.CellWidth),
                             String.Format("Attack range is not as in configuration, was type {0}", towerType));
@@ -62,15 +62,15 @@ namespace Assets.Tests.tdp.entity.tower.factory {
                 Assert.That(towerInstance.damage,
                             Is.EqualTo(Configuration.Towers[towerType].Damage),
                             String.Format("Damage is not as in configuration, was type {0}", towerType));
-                Assert.That(towerInstance.transform.position, Is.EqualTo(position), 
-                            String.Format("Position is wrong, was type {0}",towerType));
+                Assert.That(towerInstance.transform.position, Is.EqualTo(position),
+                            String.Format("Position is wrong, was type {0}", towerType));
                 Assert.That(towerInstance.shootingStrategy, Is.InstanceOf(typeof (CreateBullet)),
                             String.Format("Shooting strategy is wrong, was type {0}", towerType));
                 Assert.That(towerInstance.targetingStrategy, Is.InstanceOf(typeof (FindEnemy)),
                             String.Format("Targeting strategy is wrong, was type {0}", towerType));
 
-                Assert.NotNull(testTower.GetComponent<Tower>().sprite, 
-                    String.Format("Sprite wasn't created, was type {0}", towerType));
+                Assert.NotNull(testTower.GetComponent<Tower>().sprite,
+                               String.Format("Sprite wasn't created, was type {0}", towerType));
 
                 TearDownTestObject();
             }
@@ -84,10 +84,10 @@ namespace Assets.Tests.tdp.entity.tower.factory {
         }
 
         public void TearDownTestObject() {
-            var spriteManager = (SpriteManager)Object.FindObjectOfType(typeof(SpriteManager));
+            var spriteManager = (SpriteManager) Object.FindObjectOfType(typeof (SpriteManager));
             spriteManager.RemoveSprite(testTower.GetComponent<Tower>().sprite);
             testTower.GetComponent<Tower>().sprite = null;
-            Object.DestroyImmediate(testTower); 
+            Object.DestroyImmediate(testTower);
         }
     }
 }

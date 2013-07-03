@@ -6,12 +6,12 @@ using UnityEngine;
 
 namespace Assets.Scripts.tdp.gui {
     public class TowerSlot : MonoBehaviour {
-        public int lineId;
-        public TowerFactory towerFactory;
-
         private const int INITIAL_STATUS = 0;
         private const int CHOOSE_TYPE_OF_TOWER_STATUS = 1;
+        
+        private TowerFactory towerFactory;
 
+        private int lineId;
         private int status;
         private Vector2 cachedPosition;
         private Rect cachedRectangleMainButton;
@@ -74,5 +74,26 @@ namespace Assets.Scripts.tdp.gui {
             towerFactory.CreateTower(this, towerType);
             Destroy(gameObject);
         }
+
+        #region Get-Set
+        public void SetLineId(int lineId) {
+            this.lineId = lineId;
+        }
+
+        public int GetLineId() {
+            return lineId;
+        }
+
+        public void SetTowerFactory(TowerFactory towerFactory)
+        {
+            this.towerFactory = towerFactory;
+        }
+
+        public TowerFactory GetTowerFactory()
+        {
+            return towerFactory;
+        }
+
+        #endregion
     }
 }

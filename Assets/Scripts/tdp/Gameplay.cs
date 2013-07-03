@@ -69,8 +69,8 @@ namespace Assets.Scripts.tdp {
                             vector,
                             Quaternion.identity);
                     TowerSlot towerSlot = towerSlotGameObject.GetComponent<TowerSlot>();
-                    towerSlot.lineId = i;
-                    towerSlot.towerFactory = towerFactory;
+                    towerSlot.SetLineId(i);
+                    towerSlot.SetTowerFactory(towerFactory);
                 }
             }
         }
