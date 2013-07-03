@@ -19,7 +19,7 @@ namespace Assets.Tests.tdp.entity.tower.behaviour.shooting {
         public void SetUp() {
             bulletFactory = ScriptInstantiator.InstantiateScript<BulletFactory>(
                 (GameObject)Resources.Load("Prefabs/Factories/BulletFactoryPrefab"));
-            bulletFactory.spriteManager = (SpriteManager)Object.FindObjectOfType(typeof (SpriteManager));
+            bulletFactory.SetSpriteManager((SpriteManager)Object.FindObjectOfType(typeof (SpriteManager)));
 
             testTower = ScriptInstantiator.InstantiateScript<Tower>(
                 (GameObject)Resources.Load("Prefabs/Entities/TowerPrefab"));
@@ -43,7 +43,7 @@ namespace Assets.Tests.tdp.entity.tower.behaviour.shooting {
         [TearDown]
         public void TearDown() {
             if (testBullet != null) {
-                bulletFactory.spriteManager.RemoveSprite(testBullet.sprite);
+                bulletFactory.GetSpriteManager().RemoveSprite(testBullet.sprite);
                 testBullet.sprite = null;
                 Object.DestroyImmediate(testBullet.gameObject);
             }

@@ -9,9 +9,9 @@ using UnityEngine;
 
 namespace Assets.Scripts.tdp.entity.tower.factory {
     public class TowerFactory : MonoBehaviour {
-        public GameObject towerPrefab;
-        public SpriteManager spriteManager;
-        public BulletFactory bulletFactory;
+        [SerializeField] private GameObject towerPrefab;
+        [SerializeField] private SpriteManager spriteManager;
+        [SerializeField] private BulletFactory bulletFactory;
 
         private IFindTargetStrategy targetingStrategy;
         private IShootStrategy shootingStrategy;
@@ -22,7 +22,7 @@ namespace Assets.Scripts.tdp.entity.tower.factory {
         }
 
         public GameObject CreateTower(TowerSlot towerSlot, TowerType towerType) {
-            var towerGameObject = (GameObject)Instantiate(
+            var towerGameObject = (GameObject) Instantiate(
                 towerPrefab,
                 towerSlot.gameObject.transform.position,
                 Quaternion.identity);
@@ -44,15 +44,20 @@ namespace Assets.Scripts.tdp.entity.tower.factory {
             // Добавляем спрайт
             Rect towerFrame = Configuration.Towers[towerType].SpriteFrame;
 
-            tower.sprite = spriteManager.AddSprite(towerGameObject,
-                                                   towerFrame.width,
-                                                   towerFrame.height,
-                                                   (int) towerFrame.x,
-                                                   (int) (towerFrame.y + towerFrame.height),
-                                                   (int) towerFrame.width, (int) towerFrame.height,
-                                                   false);
+            tower.sprite =
+                spriteManager.AddSprite(towerGameObject,
+                                        towerFrame.width,
+                                        towerFrame.height,
+                                        (int) towerFrame.x,
+                                        (int) (towerFrame.y + towerFrame.height),
+                                        (int) towerFrame.width, (int) towerFrame.height,
+                                        false);
 
             return towerGameObject;
+        }
+
+        public void SetSpriteManager(SpriteManager spriteManager) {
+            this.spriteManager = spriteManager;
         }
     }
 }

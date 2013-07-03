@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.tdp.entity.bullet.factory {
     public class BulletFactory : MonoBehaviour {
-        public GameObject bulletPrefab;
-        public SpriteManager spriteManager;
+        [SerializeField] private GameObject bulletPrefab;
+        [SerializeField] private SpriteManager spriteManager;
 
         private IBulletBehaviourInCollisionStrategy bulletBehaviourInCollision;
         private IBulletDestroyStrategy destroyStrategy;
         private IBulletMovementStrategy movementStrategy;
-        
+
         public void Start() {
             bulletBehaviourInCollision = new CollideAndDamageEnemyThenDie();
             destroyStrategy = new DestroyBullet();
@@ -36,15 +36,24 @@ namespace Assets.Scripts.tdp.entity.bullet.factory {
 
             Rect bulletFrame = Configuration.BulletFrame;
 
-            bullet.sprite = spriteManager.AddSprite(bulletGameObject,
-                                                    bulletFrame.width,
-                                                    bulletFrame.height,
-                                                    (int) bulletFrame.x,
-                                                    (int) (bulletFrame.y + bulletFrame.height),
-                                                    (int) bulletFrame.width, (int) bulletFrame.height,
-                                                    false);
+            bullet.sprite = 
+                spriteManager.AddSprite(bulletGameObject,
+                                        bulletFrame.width,
+                                        bulletFrame.height,
+                                        (int) bulletFrame.x,
+                                        (int) (bulletFrame.y + bulletFrame.height),
+                                        (int) bulletFrame.width, (int) bulletFrame.height,
+                                        false);
 
             return bulletGameObject;
+        }
+
+        public void SetSpriteManager(SpriteManager spriteManager) {
+            this.spriteManager = spriteManager;
+        }
+
+        public SpriteManager GetSpriteManager() {
+            return spriteManager;
         }
     }
 }

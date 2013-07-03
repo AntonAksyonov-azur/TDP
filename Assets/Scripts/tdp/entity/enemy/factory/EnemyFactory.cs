@@ -7,12 +7,12 @@ using UnityEngine;
 
 namespace Assets.Scripts.tdp.entity.enemy.factory {
     public class EnemyFactory : MonoBehaviour {
-        public GameObject enemyPrefab;
-        public SpriteManager spriteManager;
-        
+        [SerializeField] private GameObject enemyPrefab;
+        [SerializeField] private SpriteManager spriteManager;
+
         private IEnemyDieStrategy deathStrategy;
         private IEnemyMoveStrategy movementStrategy;
-        
+
         public void Start() {
             movementStrategy = new MoveToLeft();
             deathStrategy = new EnemyDeath();
@@ -37,16 +37,21 @@ namespace Assets.Scripts.tdp.entity.enemy.factory {
             // Добавляем спрайт
             Rect enemyFrame = Configuration.Enemies[enemyType].SpriteFrame;
 
-            var sprite = spriteManager.AddSprite(enemyGameObject,
-                                                   enemyFrame.width,
-                                                   enemyFrame.height,
-                                                   (int) enemyFrame.x,
-                                                   (int) (enemyFrame.y + enemyFrame.height),
-                                                   (int) enemyFrame.width, (int) enemyFrame.height,
-                                                   false);
+            var sprite = 
+                spriteManager.AddSprite(enemyGameObject,
+                                        enemyFrame.width,
+                                        enemyFrame.height,
+                                        (int) enemyFrame.x,
+                                        (int) (enemyFrame.y + enemyFrame.height),
+                                        (int) enemyFrame.width, (int) enemyFrame.height,
+                                        false);
             enemy.sprite = sprite;
 
             return enemyGameObject;
+        }
+
+        public void SetSpriteManager(SpriteManager spriteManager) {
+            this.spriteManager = spriteManager;
         }
     }
 }

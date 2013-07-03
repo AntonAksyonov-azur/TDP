@@ -28,7 +28,7 @@ namespace Assets.Tests.tdp.entity.tower.factory {
             towerFactory =
                 ScriptInstantiator.InstantiateScript<TowerFactory>(
                     (GameObject) Resources.Load("Prefabs/Factories/TowerFactoryPrefab"));
-            towerFactory.spriteManager = (SpriteManager) Object.FindObjectOfType(typeof (SpriteManager));
+            towerFactory.SetSpriteManager((SpriteManager) Object.FindObjectOfType(typeof (SpriteManager)));
             towerFactory.Start();
 
             towerSlot =

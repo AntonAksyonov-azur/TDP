@@ -39,7 +39,7 @@ namespace Assets.Tests.tdp.entity.bullet.behaviour.movement {
             var bulletFactory =
                 ScriptInstantiator.InstantiateScript<BulletFactory>(
                     (GameObject) Resources.Load("Prefabs/Factories/BulletFactoryPrefab"));
-            bulletFactory.spriteManager = (SpriteManager) Object.FindObjectOfType(typeof (SpriteManager));
+            bulletFactory.SetSpriteManager((SpriteManager) Object.FindObjectOfType(typeof (SpriteManager)));
             bulletFactory.Start();
         }
 

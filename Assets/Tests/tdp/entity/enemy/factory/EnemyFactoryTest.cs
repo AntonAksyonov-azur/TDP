@@ -27,7 +27,7 @@ namespace Assets.Tests.tdp.entity.enemy.factory
             enemyFactory =
                 ScriptInstantiator.InstantiateScript<EnemyFactory>(
                     (GameObject) Resources.Load("Prefabs/Factories/EnemyFactoryPrefab"));
-            enemyFactory.spriteManager = (SpriteManager) Object.FindObjectOfType(typeof (SpriteManager));
+            enemyFactory.SetSpriteManager((SpriteManager) Object.FindObjectOfType(typeof (SpriteManager)));
             enemyFactory.Start();
         }
 
